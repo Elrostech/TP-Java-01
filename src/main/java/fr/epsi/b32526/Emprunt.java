@@ -37,25 +37,27 @@ public class Emprunt {
 
     public Emprunt() {}
 
-    public Integer getId() { return id; }
+    // 🔽 Getters strictement utiles pour le TP
 
-    public LocalDateTime getDateDebut() { return dateDebut; }
-    public void setDateDebut(LocalDateTime dateDebut) { this.dateDebut = dateDebut; }
+    public Integer getId() {
+        return id;
+    }
 
-    public LocalDateTime getDateFin() { return dateFin; }
-    public void setDateFin(LocalDateTime dateFin) { this.dateFin = dateFin; }
+    public Client getClient() {
+        return client;
+    }
 
-    public Integer getDelai() { return delai; }
-    public void setDelai(Integer delai) { this.delai = delai; }
-
-    public Client getClient() { return client; }
-    public void setClient(Client client) { this.client = client; }
-
-    public List<Livre> getLivres() { return livres; }
+    public List<Livre> getLivres() {
+        return livres;
+    }
 
     @Override
     public String toString() {
-        return "Emprunt{id=" + id + ", debut=" + dateDebut + ", fin=" + dateFin +
-                ", delai=" + delai + ", client=" + (client != null ? client.getId() : null) + "}";
+        return "Emprunt{id=" + id +
+                ", debut=" + dateDebut +
+                ", fin=" + dateFin +
+                ", delai=" + delai +
+                ", client=" + (client != null ? client.getId() : null) +
+                "}";
     }
 }

@@ -10,6 +10,8 @@ public class TestBibliotheque {
         EntityManager em = emf.createEntityManager();
 
         try {
+            em.getTransaction().begin();
+
             Integer empruntId = 1;
 
             TypedQuery<Emprunt> q1 = em.createQuery(
@@ -43,6 +45,13 @@ public class TestBibliotheque {
                 System.out.println(emp);
             }
 
+            em.getTransaction().commit();
+
+        } catch (Exception ex) {
+            if (em.getTransaction().isActive()) {
+                em.getTransaction().rollback();
+            }
+            ex.printStackTrace();
         } finally {
             em.close();
             emf.close();
