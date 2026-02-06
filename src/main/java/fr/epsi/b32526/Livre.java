@@ -1,6 +1,8 @@
 package fr.epsi.b32526;
 
 import jakarta.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "LIVRE")
@@ -16,6 +18,9 @@ public class Livre {
 
     @Column(name = "AUTEUR", nullable = false, length = 50)
     private String auteur;
+
+    @ManyToMany(mappedBy = "livres")
+    private List<Emprunt> emprunts = new ArrayList<>();
 
     public Livre() {}
 
@@ -44,8 +49,15 @@ public class Livre {
         this.auteur = auteur;
     }
 
+    public List<Emprunt> getEmprunts() {
+        return emprunts;
+    }
+
     @Override
     public String toString() {
-        return "Livre{id=" + id + ", titre='" + titre + "', auteur='" + auteur + "'}";
+        return "Livre{id=" + id +
+                ", titre='" + titre + '\'' +
+                ", auteur='" + auteur + '\'' +
+                '}';
     }
 }
