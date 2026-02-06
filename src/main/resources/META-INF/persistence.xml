@@ -5,9 +5,9 @@
              version="3.2">
   <persistence-unit name="pu">
     <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-    <class>fr.epsi.b32526.person</class>
+    <class>fr.epsi.b32526.Livre</class>
     <properties>
-      <property name="jakarta.persistence.jdbc.url" value="jdbc:mariadb://localhost:3306/java"/>
+      <property name="jakarta.persistence.jdbc.url" value="jdbc:mariadb://localhost:3306/tpjava"/>
       <property name="jakarta.persistence.jdbc.user" value="root"/>
       <property name="jakarta.persistence.jdbc.password" value=""/>
       <property name="jakarta.persistence.jdbc.driver" value="org.mariadb.jdbc.Driver"/>
